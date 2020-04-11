@@ -1,1 +1,1 @@
-# cpppool# cpp_class_template
+# cpppool
