@@ -8,9 +8,9 @@ class Human
 		Human( void );
 		~Human( void );
 		std::string identify();
-		Brain getBrain();
+		const Brain &getBrain();
 	private:
-		Brain humanbrain;
+		const Brain humanbrain;
 };
 
 #endif

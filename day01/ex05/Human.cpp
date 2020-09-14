@@ -6,7 +6,6 @@ Human::Human()
 
 Human::~Human()
 {
-	return ;
 }
 
 std::string Human::identify(void)
@@ -14,7 +13,7 @@ std::string Human::identify(void)
 	return (this->humanbrain.identify());
 }
 
-Brain Human::getBrain()
+const Brain &Human::getBrain()
 {
 	return (this->humanbrain);
 }

@@ -11,7 +11,7 @@ Brain::~Brain(void)
 
 }
 
-std::string Brain::identify(void)
+std::string Brain::identify(void) const
 {
 	return (this->address);
 }
