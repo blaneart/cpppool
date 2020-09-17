@@ -1,20 +1,22 @@
 #include "iostream"
 #include "string"
+#include <unistd.h>
 
 void memoryLeak()
 {
 	std::string*        panther = new std::string("String panther");
 	std::cout << *panther << std::endl;
+
 }
 
-void resolvedmemoryLeak1()
+void resolvedMemoryLeak1()
 {
 	std::string*        panther = new std::string("String panther");
 	std::cout << *panther << std::endl;
 	delete panther;
 }
 
-void resolvedmemoryLeak2()
+void resolvedMemoryLeak2()
 {
 	std::string panther("String panther");
 	std::cout << panther << std::endl;
@@ -22,6 +24,11 @@ void resolvedmemoryLeak2()
 
 int main()
 {
-	resolvedmemoryLeak2();
+	resolvedMemoryLeak1();
+	sleep(20);
+	resolvedMemoryLeak2();
+	sleep(20);
+	memoryLeak();
+	sleep(50);
 	return (0);
 }
