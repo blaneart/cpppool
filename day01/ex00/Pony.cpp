@@ -6,7 +6,7 @@
 /*   By: art <art@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/15 16:01:47 by art               #+#    #+#             */
-/*   Updated: 2020/03/15 16:24:33 by art              ###   ########.fr       */
+/*   Updated: 2020/09/17 17:18:03 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,12 @@ Pony::Pony(std::string myname, int old)
 
 Pony::~Pony( void )
 {
+	std::cout << name << " is dead." << std::endl;
 }
 
 void Pony::SayMyName( void )
 {
-	std::cout << name << std::endl;
+	std::cout << "My name is "<< name << "." << std::endl;
 }
 void Pony::BirthDay( void )
 {
