@@ -6,7 +6,7 @@
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/21 16:47:04 by ablanar           #+#    #+#             */
-/*   Updated: 2020/09/21 16:47:06 by ablanar          ###   ########.fr       */
+/*   Updated: 2020/09/21 17:21:44 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int ft_replace(std::string filename, std::string s1, std::string s2)
 {
 	std::ifstream	input(filename);
-	std::ofstream	output(filename + ".replace");
+
 	std::string	buf;
 	size_t	position;
 	size_t len2 = s2.size();
@@ -32,6 +32,7 @@ int ft_replace(std::string filename, std::string s1, std::string s2)
 		std::cerr << "Couldn't open file" << filename << std::endl;
 		return (1);
 	}
+	std::ofstream	output(filename + ".replace");
 	if (output.fail())
 	{
 		std::cerr << "Couldn't create replace file. Exit." << std::endl;
