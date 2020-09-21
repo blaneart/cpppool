@@ -6,8 +6,8 @@ int main()
 	Zombie *exmpl;
 	lol.setZombieType("ded");
 	lol.randomChump();
-	exmlp = lol.newZombie();
-	exmpl.announce();
+	exmpl = lol.newZombie();
+	exmpl->announce();
 	delete exmpl;
 	return 0;
 }
