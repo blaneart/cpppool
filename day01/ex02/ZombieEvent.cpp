@@ -30,5 +30,4 @@ void	ZombieEvent::randomChump()
 	int number = rand() % 6;
 	Zombie dead(names[number], this->type);
 	dead.announce();
-
 }
