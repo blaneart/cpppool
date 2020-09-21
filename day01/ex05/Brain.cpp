@@ -2,16 +2,17 @@
 
 Brain::Brain(void)
 {
-	std::stringstream buffer;
-	buffer << this;
-	this->address = buffer.str();
+	srand (time(NULL));
+	volume = rand() % 3000;
 }
+
 Brain::~Brain(void)
 {
-
 }
 
 std::string Brain::identify(void) const
 {
-	return (this->address);
+	std::stringstream buffer;
+	buffer << this;
+	return (buffer.str());
 }

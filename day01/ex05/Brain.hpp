@@ -2,6 +2,7 @@
 #define BRAIN_HPP
 #include <string>
 #include <sstream>
+
 class Brain
 {
 	public:
@@ -9,6 +10,6 @@ class Brain
 		~Brain();
 		std::string identify() const;
 	private:
-		std::string address;
+		unsigned int volume;
 };
 #endif
