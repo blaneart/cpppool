@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/09/21 16:47:04 by ablanar           #+#    #+#             */
+/*   Updated: 2020/09/21 16:47:06 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <fstream>
 #include <iostream>
 
@@ -34,7 +46,7 @@ int ft_replace(std::string filename, std::string s1, std::string s2)
 			position = buf.find(s1, position + len2);
 		}
 		output << buf;
-		if (buf.size() > 0)
+		if (!input.eof())
 			output << std::endl;
 	}
 	input.close();
