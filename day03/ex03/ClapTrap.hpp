@@ -1,20 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/13 20:29:54 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/13 20:29:55 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 #include <iostream>
 class ClapTrap
 {
 	protected:
-		int hp;
-		int ep;
-		int max_hp;
-		int max_ep;
-		int lvl;
-		int clap_max_hp;
-		int clap_max_ep;
-		std::string clap_name;
-		int m_attack;
-		int r_attack;
-		int armor;
+		unsigned int hp;
+		unsigned int ep;
+		unsigned int max_hp;
+		unsigned int max_ep;
+		unsigned int lvl;
+		std::string name;
+		unsigned int m_attack;
+		unsigned int r_attack;
+		unsigned int armor;
+		std::string type;
 	public:
 		ClapTrap();
 		~ClapTrap();

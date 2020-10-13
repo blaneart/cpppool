@@ -1,18 +1,30 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/13 20:28:12 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/13 20:28:24 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 # include <iostream>
 class FragTrap
 {
 	private:
-		int hp;
-		static int const max_hp = 100;
-		int ep;
-		static int const max_ep = 100;
-		static int const lvl = 1;
+		unsigned int hp;
+		unsigned int max_hp;
+		unsigned int ep;
+		unsigned int max_ep;
+		unsigned int lvl;
 		std::string name;
-		static int const m_attack = 30;
-		static int const r_attack = 20;
-		static int const armor = 5;
+		unsigned int m_attack;
+		unsigned int r_attack;
+		unsigned int armor;
 	public:
 		FragTrap(std::string);
 		~FragTrap();

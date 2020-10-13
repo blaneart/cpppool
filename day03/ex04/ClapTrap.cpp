@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/13 20:30:32 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/13 20:30:32 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap()
 {
-	
 	std::cout << "ClapTrap inda house!" << std::endl;
 }
 
@@ -11,38 +22,62 @@ ClapTrap::~ClapTrap()
 	std::cout << "ClapTrap outta house!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap& other)
+ClapTrap::ClapTrap(const ClapTrap& other):
+  hp(other.hp), ep(other.ep), max_hp(other.max_hp),  max_ep(other.max_ep), lvl(other.lvl),name(other.name), m_attack(other.m_attack), r_attack(other.r_attack), armor(other.armor), type(other.type)
 {
-	this->clap_name = other.clap_name;
+}
+
+ClapTrap& ClapTrap::operator=(const ClapTrap& other)
+{
+	name = other.name;
+	hp = other.hp;
+	ep = other.ep;
+	type = other.type;
+	max_hp = other.max_hp;
+	max_ep = other.max_ep;
+	lvl = other.lvl;
+	m_attack = other.m_attack;
+	r_attack = other.r_attack;
+	armor = other.armor;
+	return *this;
 }
 
 void ClapTrap::rangedAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP " << clap_name << " attacks " << target << " at range, causing "
+	std::cout << type << " " << name << " attacks " << target << " at range, causing "
 				<< r_attack << " points of damage!" << std::endl;
 }
 
 void ClapTrap::meleeAttack(std::string const & target)
 {
-	std::cout << "FR4G-TP " << clap_name << " attacks " << target << ", causing "
+	std::cout << type << " " << name << " attacks " << target << ", causing "
 				<< this->m_attack << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->hp = this->hp - (amount - this->armor);
-	if (this->hp < 0)
-		this->hp = 0;
-	std::cout << "FR4G-TP " << clap_name << " took " << amount << " damage!"
-			<< " Due to reduction of " << armor << ", now it has " << hp
-			<< " health points " << std::endl;
+	unsigned int realDamage;
+	if (amount < this->armor)
+		realDamage = 0;
+	else
+		realDamage = amount - this->armor;
+	if (hp <= realDamage)
+		hp = 0;
+	else
+		this->hp = this->hp - realDamage;
+	std::cout << type << " " << name << " took " << amount << " damage!"
+			<< " Due to reduction of " << armor << " it took just " << realDamage << " of damage. Now it has " << hp
+			<< " health points." << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	this->hp = this->hp + amount;
-	if (this->hp > max_hp)
-		this->hp = max_hp;
-	std::cout << "FR4G-TP " << clap_name << " has been repaired for " << amount
-				<< " health points! Now it has " << hp << " health points." << std::endl;
+	unsigned int real;
+
+	if (amount + hp > max_hp)
+		real = this->max_hp - this->hp;
+	else
+		real = amount;
+	hp = hp + real;
+	std::cout << type << " " << name << " has been repaired for " << real << " health points! Now it has " << hp << " health points." << std::endl;
 }

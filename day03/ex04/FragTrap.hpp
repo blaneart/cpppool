@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/13 20:30:46 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/13 20:30:48 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FRAGTRAP_HPP
 #define FRAGTRAP_HPP
 # include <iostream>
@@ -5,14 +17,6 @@
 
 class FragTrap : virtual public ClapTrap
 {
-	protected:
-		static int const f_max_hp = 100;
-		static int const f_max_ep = 100;
-		static int const lvl = 1;
-		std::string name;
-		static int const f_m_attack = 30;
-		static int const f_r_attack = 20;
-		static int const f_armor = 5;
 	public:
 		FragTrap(std::string);
 		~FragTrap();
