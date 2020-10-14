@@ -6,7 +6,7 @@
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/13 20:29:11 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/13 20:29:13 by ablanar          ###   ########.fr       */
+/*   Updated: 2020/10/14 15:29:46 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,15 @@ void ClapTrap::meleeAttack(std::string const & target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	this->hp = this->hp - (amount - this->armor);
-	if (this->hp < 0)
-		this->hp = 0;
+	unsigned int realDamage;
+	if (amount < this->armor)
+		realDamage = 0;
+	else
+		realDamage = amount - this->armor;
+	if (hp <= realDamage)
+		hp = 0;
+	else
+		this->hp = this->hp - realDamage;
 	std::cout << type << " " << name << " took " << amount << " damage!"
 			<< " Due to reduction of " << armor << ", now it has " << hp
 			<< " health points " << std::endl;
@@ -66,9 +72,13 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	this->hp = this->hp + amount;
-	if (this->hp > max_hp)
-		this->hp = max_hp;
+	unsigned int real;
+
+	if (amount + hp > max_hp)
+		real = this->max_hp - this->hp;
+	else
+		real = amount;
+	hp = hp + real;
 	std::cout << type << " " << name << " has been repaired for " << amount
 				<< " health points! Now it has " << hp << " health points." << std::endl;
 }
