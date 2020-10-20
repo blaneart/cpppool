@@ -1,34 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
+/*   Fire.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 18:55:11 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/14 18:55:11 by ablanar          ###   ########.fr       */
+/*   Created: 2020/10/20 17:31:34 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/20 17:37:44 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RadScorpion.hpp"
 
-RadScorpion::RadScorpion() :
-	Enemy(80, "RadScorpion")
-{
-	std::cout << "* click click click *" << std::endl;
-}
+#include "Fire.hpp"
 
-RadScorpion::RadScorpion(const RadScorpion& other) :
-	Enemy(other)
+Fire::Fire() :
+	AMateria("fire")
 {
 }
 
-RadScorpion& RadScorpion::operator=(const RadScorpion & other)
+Fire::Fire(const Fire& other) :
+	AMateria(other)
 {
-	Enemy::operator=(other);
+
+}
+
+Fire& Fire::operator=(const Fire& other)
+{
+	AMateria::operator=(other);
 	return *this;
 }
-RadScorpion::~RadScorpion()
+
+Fire::~Fire()
 {
-	std::cout << "* SPROTCH *" << std::endl;
+}
+
+AMateria *Fire::clone() const
+{
+	AMateria *buf = new Fire(*this);
+	return buf;
+}
+
+void Fire::use(ICharacter & target)
+{
+	AMateria::use(target);
+	std::cout << "* lights up the fire underneath "<< target.getName() << " *" <<std::endl;
+
 }

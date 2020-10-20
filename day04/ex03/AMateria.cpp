@@ -1,27 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/16 15:37:55 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/16 16:17:35 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type)
+AMateria::AMateria(std::string const & type):
+	type(type), _xp(0)
 {
-	this->type = type;
-	this->_xp = 0;
 }
 
-AMateria::AMateria(const AMateria& other)
+AMateria::AMateria(const AMateria& other):
+	type(other.type), _xp(other._xp)
 {
-	this->type = other.getType();
-	this->_xp = other.getXP();
 }
 
 AMateria & AMateria::operator=(const AMateria& other)
 {
-	this->type = other.getType();
-	this->_xp = other.getXP();
+	this->_xp = other._xp;
 	return *this;
 }
 
 AMateria::~AMateria()
 {
-
 }
 
 std::string const & AMateria::getType() const
@@ -41,5 +49,6 @@ void AMateria::setXP(unsigned int xp)
 
 void AMateria::use(ICharacter & target)
 {
-	this->_xp = this->_xp + 10;
+	this->_xp += 10;
+	(void) target;
 }

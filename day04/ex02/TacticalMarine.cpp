@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   TacticalMarine.cpp                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/16 15:35:36 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/19 16:12:38 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "TacticalMarine.hpp"
 
 TacticalMarine::TacticalMarine()
@@ -7,11 +19,13 @@ TacticalMarine::TacticalMarine()
 
 TacticalMarine::TacticalMarine(const TacticalMarine & other)
 {
-
+	(void) other;
+	std::cout << "Tactical Marine ready for battle!" << std::endl;
 }
 
 TacticalMarine& TacticalMarine::operator=(const TacticalMarine& other)
 {
+	(void) other;
 	return *this;
 }
 

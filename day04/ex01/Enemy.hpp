@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Enemy.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/14 18:54:53 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/14 18:54:54 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ENEMY_HPP
 #define ENEMY_HPP
 #include <iostream>
@@ -15,8 +27,6 @@ class Enemy
 		virtual ~Enemy();
 		std::string const getType() const;
 		int getHP() const;
-		void setType(std::string const&);
-		void setHP(int);
 		virtual void takeDamage(int);
 };
 

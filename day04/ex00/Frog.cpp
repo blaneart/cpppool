@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PowerFist.cpp                                      :+:      :+:    :+:   */
+/*   Frog.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 18:55:04 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/14 19:19:06 by ablanar          ###   ########.fr       */
+/*   Created: 2020/10/14 17:51:48 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/19 14:42:24 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PowerFist.hpp"
+#include "Frog.hpp"
 
-PowerFist::PowerFist() :
-	AWeapon("Power Fist", 8, 50)
+Frog::Frog(std::string name):
+	Victim(name)
 {
+	std::cout << "Quack quack." << std::endl;
 }
 
-PowerFist::~PowerFist()
+Frog::~Frog()
 {
+	std::cout << "Bloooop..." << std::endl;
 }
 
-PowerFist::PowerFist(const PowerFist& other) :
-	AWeapon(other)
+Frog::Frog(const Frog& other):
+	Victim(other)
 {
+	std::cout << "Quack quack." << std::endl;
 }
 
-PowerFist& PowerFist::operator=(const PowerFist &other)
+Frog& Frog::operator=(const Frog& other)
 {
-	AWeapon::operator=(other);
+	Victim::operator=(other);
 	return *this;
 }
 
-void PowerFist::attack() const
+void Frog::getPolymorphed( void ) const
 {
-	std::cout << "* pschhh... SBAM! *" << std::endl;
+	std::cout << this->getName() << " has been turned into a prince" << std::endl;
 }

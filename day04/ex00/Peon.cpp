@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Peon.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/14 17:52:56 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/19 14:42:27 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Peon.hpp"
 
 Peon::Peon(std::string name):
 	Victim(name)
 {
-	this->name = name;
 	std::cout << "Zog zog." << std::endl;
 }
 
@@ -13,14 +24,14 @@ Peon::~Peon()
 }
 
 Peon::Peon(const Peon& other):
-	Victim(other.name)
+	Victim(other)
 {
-	this->name = other.name;
+	std::cout << "Zog zog." << std::endl;
 }
 
 Peon& Peon::operator=(const Peon& other)
 {
-	this->name = other.name;
+	Victim::operator=(other);
 	return *this;
 }
 

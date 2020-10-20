@@ -1,28 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AWeapon.cpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/14 17:53:26 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/14 19:18:29 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AWeapon.hpp"
 
-AWeapon::AWeapon(std::string const & name, int apcost, int damage)
+AWeapon::AWeapon(std::string const & name, int apcost, int damage):
+	name(name), apcost(apcost), damage(damage)
 {
-	this->name = name;
-	this->apcost = apcost;
-	this->damage = damage;
 }
 
 AWeapon::~AWeapon()
 {
 }
 
-AWeapon::AWeapon(const AWeapon& other)
+AWeapon::AWeapon(const AWeapon& other):
+	name(other.name), apcost(other.apcost), damage(other.damage)
 {
-	this->name = other.getName();
-	this->apcost = other.getAPCost();
-	this->name = other.getDamage();
 }
 
 AWeapon& AWeapon::operator=(const AWeapon& other)
 {
 	this->name = other.getName();
 	this->apcost = other.getAPCost();
-	this->name = other.getDamage();
+	this->damage = other.getDamage();
 	return *this;
 }
 

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   Frog.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 16:06:47 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/16 16:06:48 by ablanar          ###   ########.fr       */
+/*   Created: 2020/10/14 17:51:54 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/19 14:39:16 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
+#ifndef FROG_HPP
+#define FROG_HPP
 #include <iostream>
-#include "AMateria.hpp"
+#include "Victim.hpp"
 
-class IMateriaSource
+class Frog : public Victim
 {
+	private:
+		Frog();
 	public:
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
-		virtual AMateria* createMateria(std::string const & type) = 0;
+		Frog(std::string);
+		virtual ~Frog();
+		Frog(const Frog&);
+		Frog& operator=(const Frog&);
+		void getPolymorphed( void ) const;
 };
 #endif

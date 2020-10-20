@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   NukaNuka.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 16:06:47 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/16 16:06:48 by ablanar          ###   ########.fr       */
+/*   Created: 2020/10/20 17:17:41 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/20 17:18:57 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
-#include <iostream>
-#include "AMateria.hpp"
+#include "NukaNuka.hpp"
 
-class IMateriaSource
+NukaNuka::NukaNuka() :
+	AWeapon("Nuka-Nuka Launcher", 50, 40)
 {
-	public:
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
-		virtual AMateria* createMateria(std::string const & type) = 0;
-};
-#endif
+
+}
+
+NukaNuka::~NukaNuka()
+{
+}
+
+NukaNuka::NukaNuka(const NukaNuka& other):
+	AWeapon(other)
+{
+
+}
+
+NukaNuka& NukaNuka::operator=(const NukaNuka& other)
+{
+	AWeapon::operator=(other);
+	return *this;
+}
+
+void NukaNuka::attack() const
+{
+	std::cout << "* %^£@*&%^ BOOOOOOON *" << std::endl;
+}

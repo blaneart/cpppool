@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/14 18:54:47 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/14 18:54:47 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 #include "Enemy.hpp"
@@ -9,6 +21,7 @@ class Character
 		std::string name;
 		int ap;
 		AWeapon *wp;
+		Character();
 	public:
 		Character(std::string const & name);
 		Character(const Character &);

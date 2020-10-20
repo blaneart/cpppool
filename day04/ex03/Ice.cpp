@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/16 16:06:24 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/16 16:06:25 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Ice.hpp"
 
 Ice::Ice() :
@@ -13,7 +25,7 @@ Ice::Ice(const Ice& other) :
 
 Ice& Ice::operator=(const Ice& other)
 {
-	this->setXP(other.getXP());
+	AMateria::operator=(other);
 	return *this;
 }
 

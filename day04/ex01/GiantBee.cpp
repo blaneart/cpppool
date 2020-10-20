@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RadScorpion.cpp                                    :+:      :+:    :+:   */
+/*   GiantBee.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/14 18:55:11 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/14 18:55:11 by ablanar          ###   ########.fr       */
+/*   Created: 2020/10/20 17:20:23 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/20 17:24:26 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RadScorpion.hpp"
+#include "GiantBee.hpp"
 
-RadScorpion::RadScorpion() :
-	Enemy(80, "RadScorpion")
+GiantBee::GiantBee() :
+	Enemy(50, "Giant Bee")
 {
-	std::cout << "* click click click *" << std::endl;
+	std::cout << "ZzzzZZzzzZZZ" << std::endl;
 }
 
-RadScorpion::RadScorpion(const RadScorpion& other) :
+GiantBee::GiantBee(const GiantBee & other) :
 	Enemy(other)
 {
+	std::cout << "ZzzzZZzzzZZZ" << std::endl;
 }
 
-RadScorpion& RadScorpion::operator=(const RadScorpion & other)
+GiantBee& GiantBee::operator=(GiantBee const & other)
 {
 	Enemy::operator=(other);
 	return *this;
 }
-RadScorpion::~RadScorpion()
+
+GiantBee::~GiantBee()
 {
-	std::cout << "* SPROTCH *" << std::endl;
+	std::cout << "Bzzbzbz.. bz.." << std::endl;
+}
+
+void GiantBee::takeDamage(int damage)
+{
+	int chance = rand() % 2;
+	if (chance == 0)
+		Enemy::takeDamage(damage);
 }

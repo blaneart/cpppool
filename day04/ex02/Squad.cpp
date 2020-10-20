@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Squad.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/16 15:35:07 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/16 15:35:08 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Squad.hpp"
 
 Squad::Squad()
@@ -32,7 +44,7 @@ Squad& Squad::operator=(const Squad& other)
 		delete this->getUnit(i);
 		i++;
 	}
-	delete this->unit;
+	delete [] this->unit;
 	this->count = other.getCount();
 	this->unit = new ISpaceMarine*[this->count];
 	i = 0;
@@ -47,12 +59,12 @@ Squad& Squad::operator=(const Squad& other)
 Squad::~Squad()
 {
 	int i = 0;
-
 	while (i < this->count)
 	{
 		delete this->unit[i];
 		i++;
 	}
+	delete[] this->unit;
 }
 
 int Squad::getCount() const
@@ -78,7 +90,7 @@ int Squad::push(ISpaceMarine *marine)
 		ISpaceMarine **buf = new ISpaceMarine*[this->count + 1];
 		for (int i = 0; i < this->count; i++)
 			buf[i] = this->unit[i];
-		delete this->unit;
+		delete [] this->unit;
 		buf[this->count] = marine;
 		this->count = this->count + 1;
 		this->unit = buf;

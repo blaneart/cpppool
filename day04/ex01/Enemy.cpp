@@ -1,21 +1,31 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Enemy.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/14 18:54:50 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/14 19:18:55 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Enemy.hpp"
 
-Enemy::Enemy(int hp, std::string const & type)
+Enemy::Enemy(int hp, std::string const & type) :
+	hp(hp), type(type)
 {
-	this->hp = hp;
-	this->type = type;
 }
 
-Enemy::Enemy(const Enemy& other)
+Enemy::Enemy(const Enemy& other) :
+	hp(other.hp), type(other.type)
 {
-	this->hp = other.getHP();
-	this->type = other.getType();
 }
 
 Enemy& Enemy::operator=(const Enemy& other)
 {
-	this->hp = other.getHP();
-	this->type = other.getType();
+	this->hp = other.hp;
+	this->type = other.type;
 	return *this;
 }
 
@@ -33,18 +43,10 @@ int Enemy::getHP() const
 	return this->hp;
 }
 
-void Enemy::setType(std::string const & type)
-{
-	this->type = type;
-}
-
-void Enemy::setHP(int hp)
-{
-	this->hp = hp;
-}
-
 void Enemy::takeDamage(int damage)
 {
 	if (damage >= 0)
 		this->hp = this->hp - damage;
+	if (hp < 0)
+		hp = 0;
 }

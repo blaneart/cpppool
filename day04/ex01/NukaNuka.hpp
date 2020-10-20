@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   NukaNuka.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 16:06:47 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/16 16:06:48 by ablanar          ###   ########.fr       */
+/*   Created: 2020/10/20 17:17:02 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/20 17:24:24 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
-#include <iostream>
-#include "AMateria.hpp"
+#ifndef NUKANUKA_HPP
+#define NUKANUKA_HPP
+#include "AWeapon.hpp"
 
-class IMateriaSource
+class NukaNuka : public AWeapon
 {
 	public:
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
-		virtual AMateria* createMateria(std::string const & type) = 0;
+		NukaNuka();
+		virtual ~NukaNuka();
+		NukaNuka(const NukaNuka&);
+		NukaNuka& operator=(const NukaNuka&);
+		void attack() const;
 };
+
 #endif

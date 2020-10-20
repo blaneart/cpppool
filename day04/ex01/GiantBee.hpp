@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   GiantBee.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/16 16:06:47 by ablanar           #+#    #+#             */
-/*   Updated: 2020/10/16 16:06:48 by ablanar          ###   ########.fr       */
+/*   Created: 2020/10/20 17:19:44 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/20 17:20:09 by ablanar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
-#include <iostream>
-#include "AMateria.hpp"
-
-class IMateriaSource
+#ifndef GIANTBEE_HPP
+#define GIANTBEE_HPP
+#include "Enemy.hpp"
+class GiantBee : public Enemy
 {
 	public:
-		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
-		virtual AMateria* createMateria(std::string const & type) = 0;
+		GiantBee();
+		GiantBee(const GiantBee&);
+		GiantBee& operator=(const GiantBee &);
+		virtual ~GiantBee();
+		void takeDamage(int);
 };
+
 #endif

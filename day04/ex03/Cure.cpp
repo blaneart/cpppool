@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cure.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ablanar <ablanar@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/10/16 15:51:58 by ablanar           #+#    #+#             */
+/*   Updated: 2020/10/16 15:52:25 by ablanar          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cure.hpp"
 
 Cure::Cure():
@@ -13,7 +25,7 @@ Cure::Cure(const Cure& other) :
 
 Cure& Cure::operator=(const Cure& other)
 {
-	this->setXP(other.getXP());
+	AMateria::operator=(other);
 	return *this;
 }
 
